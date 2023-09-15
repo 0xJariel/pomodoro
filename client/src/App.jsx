@@ -1,9 +1,9 @@
-import { useStatem, useMemo } from "react";
+import { useStatem, useMemo, useEffect, useState } from "react";
 import styled from "styled-components";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Dashboard from "./components/Dashboard";
 import { useLocation, Outlet } from "react-router-dom";
+import useAuth from "./components/useAuth";
 
 function App() {
   const location = useLocation();
@@ -12,11 +12,13 @@ function App() {
     return new URLSearchParams(location.search).get("code");
   }, [location.search]);
 
+  const AuthToken = useAuth(code);
+
   return (
     <StyledApp>
       <Navbar />
       <Outlet />
-      {code ? <Dashboard code={code} /> : <Footer />}
+      {code ? <h4>{AuthToken}</h4> : <Footer />}
     </StyledApp>
   );
 }
