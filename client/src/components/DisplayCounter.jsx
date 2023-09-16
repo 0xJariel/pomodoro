@@ -17,4 +17,6 @@ export default DisplayTimer;
 
 const StyledDisplayCounter = styled.section`
   display: flex;
+  font-size: 65px;
+  justify-content: center;
 `;

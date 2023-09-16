@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FaSpotify } from "react-icons/fa";
 
 function Footer() {
   const AUTH_URL =
@@ -8,6 +9,9 @@ function Footer() {
     <StyledFooter>
       <div>Login with</div>
       <a href={AUTH_URL}>Spotify</a>
+      <div>
+        <FaSpotify />
+      </div>
     </StyledFooter>
   );
 }

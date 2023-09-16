@@ -9,6 +9,7 @@ import CreateUser from "./Hooks/CreateUser";
 import CreateUserList from "./Hooks/CreateUserList";
 import CreateDefaultList from "./Hooks/CreateDefaultList";
 import CreatePlaylist from "./Hooks/CreatePlaylist";
+import WelcomeUserMsg from "./components/WelcomeUserMsg";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "9cae559518c9414eaf7cb90673188a83",
@@ -39,7 +40,7 @@ function App() {
     <StyledApp>
       <Navbar />
       <Outlet />
-      {code ? <h4>{accessToken}</h4> : <Footer />}
+      {code ? <WelcomeUserMsg /> : <Footer />}
     </StyledApp>
   );
 }
@@ -48,10 +49,11 @@ export default App;
 
 const StyledApp = styled.main`
   display: grid;
-  background-color: #1e1e1e;
+  background-color: #ffffff;
   box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.25);
   max-width: 280px;
+  /* min-height: 432px; */
   /* height: 400px; */
-  border-radius: 8%;
+  border-radius: 24px;
   gap: 12px;
 `;

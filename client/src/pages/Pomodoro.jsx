@@ -63,7 +63,7 @@ function Pomodoro() {
   return (
     <StyledPomodoro>
       <DisplayTimer minutes={minutes} seconds={seconds} />
-      <PomodoroMessage />
+      <PomodoroMessage minutes={minutes} seconds={seconds} />
       <Radio />
       <TimerControls
         isRunning={isRunning}
@@ -79,6 +79,9 @@ export default Pomodoro;
 
 const StyledPomodoro = styled.div`
   display: grid;
-  justify-content: center;
-  gap: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 16px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 `;
