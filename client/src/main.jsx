@@ -1,7 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 import Pomodoro from "./pages/Pomodoro.jsx";
 import Settings from "./pages/settings.jsx";
 import Error from "./pages/Error.jsx";
