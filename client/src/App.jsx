@@ -1,15 +1,14 @@
-import { useStatem, useMemo, useEffect, useState } from "react";
+import { useStatem, useMemo, useEffect, useState, context } from "react";
 import styled from "styled-components";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { useLocation, Outlet } from "react-router-dom";
+import { useLocation, Outlet, useOutletContext } from "react-router-dom";
 import useAuth from "./useAuth";
 import SpotifyWebApi from "spotify-web-api-node";
 import CreateUser from "./Hooks/CreateUser";
-import CreateUserList from "./Hooks/CreateUserList";
-import CreateDefaultList from "./Hooks/CreateDefaultList";
-import CreatePlaylist from "./Hooks/CreatePlaylist";
+import CreateUserList from "./Hooks/CreatePlaylistList";
 import WelcomeUserMsg from "./components/WelcomeUserMsg";
+import CreatePlaylistList from "./Hooks/CreatePlaylistList";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "9cae559518c9414eaf7cb90673188a83",
@@ -29,17 +28,16 @@ function App() {
   const accessToken = useAuth(code);
 
   const { userID, displayName } = CreateUser(accessToken, spotifyApi);
-  const { defaultList } = CreateDefaultList();
-  const { userList } = CreateUserList(accessToken, spotifyApi);
+  const { playlistList } = CreatePlaylistList(accessToken, spotifyApi);
+
   // const { allPlaylists } = createPlayList(defaultList, userList);
-  const [playList, setPlaylist] = useState(defaultList[0]);
 
   const createDisplayName = () => {};
 
   return (
     <StyledApp>
       <Navbar />
-      <Outlet />
+      <Outlet context={{ accessToken, spotifyApi }} />
       {code ? <WelcomeUserMsg /> : <Footer />}
     </StyledApp>
   );

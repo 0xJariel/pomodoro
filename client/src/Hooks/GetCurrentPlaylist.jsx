@@ -1,6 +1,6 @@
 import React from "react";
 
-function CreatePlaylist() {
+function GetCurrentPlaylist() {
   const getPlaylistFromID = async (defaultList) => {
     try {
       const response = spotifyApi.getPlaylist("4WX5OTb36RgzXqPpRLg4dQ");
@@ -18,6 +18,7 @@ function CreatePlaylist() {
       console.log("Something went wrong!", err);
     }
   );
+  return <div>GetCurrentPlaylist</div>;
 }
 
-export default CreatePlaylist;
+export default GetCurrentPlaylist;
