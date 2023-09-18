@@ -1,18 +1,23 @@
-import React, { useContext } from "react";
 import styled from "styled-components";
 import DisplayTimer from "../components/DisplayCounter";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import TimerControls from "../components/TimerControls";
 import PomodoroMessage from "../components/PomodoroMessage";
 import Radio from "../components/Radio";
 import Countdown from "../Hooks/Countdown";
 
 function Pomodoro() {
-  const { isRunning, handleStart, handlePause, handleReset } = Countdown();
+  // const { minutes, seconds } = useContext();
 
-  const [length, setLength] = useState({ minutes: 25, seconds: 0 });
   const [minutes, setMinutes] = useState(25);
   const [seconds, setSeconds] = useState(0);
+
+  const { isRunning, handleStart, handlePause, handleReset } = Countdown({
+    seconds,
+    minutes,
+    setMinutes,
+    setSeconds,
+  });
 
   return (
     <StyledPomodoro>

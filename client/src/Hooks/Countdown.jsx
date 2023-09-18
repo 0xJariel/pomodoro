@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-function Countdown() {
+function Countdown({ seconds, minutes, setMinutes, setSeconds }) {
   const [isRunning, setIsRunning] = useState(false);
 
   const decreaseMinute = () => {

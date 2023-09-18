@@ -16,7 +16,12 @@ function CreatePlaylistList(accessToken, spotifyApi) {
         const arr = [...defaultList]; // Initialize with the default list
         const playlists = data.body.items;
         playlists.forEach((item) => {
-          arr.push({ name: item.name, playlistID: item.id });
+          console.log(item);
+          arr.push({
+            name: item.name,
+            playlistID: item.id,
+            playlistUri: item.uri,
+          });
         });
 
         setPlaylistList(arr);

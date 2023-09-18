@@ -15,7 +15,8 @@ const CreateUser = (accessToken, spotifyApi) => {
       function (data) {
         console.log("Some information about the authenticated user", data.body);
         // unnessessary I think because it defaults to logged in user if none is specified
-        setDisplayName(data.body.id);
+        console.log(data.body);
+        setDisplayName(data.body.display_name);
         setUserID(data.body.id);
       },
       function (err) {

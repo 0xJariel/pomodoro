@@ -2,10 +2,10 @@ import React from "react";
 import { FaSpotify } from "react-icons/fa";
 import styled from "styled-components";
 
-function WelcomeUserMsg(userID) {
+function WelcomeUserMsg({ displayName }) {
   return (
     <StyledWelcomeMsg>
-      Welcome Jay {`:)`} <FaSpotify />
+      Welcome {displayName} {`:)`} <FaSpotify />
     </StyledWelcomeMsg>
   );
 }

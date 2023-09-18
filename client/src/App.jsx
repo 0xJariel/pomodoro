@@ -9,6 +9,7 @@ import CreateUser from "./Hooks/CreateUser";
 import CreateUserList from "./Hooks/CreatePlaylistList";
 import WelcomeUserMsg from "./components/WelcomeUserMsg";
 import CreatePlaylistList from "./Hooks/CreatePlaylistList";
+import Countdown from "./Hooks/Countdown";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "9cae559518c9414eaf7cb90673188a83",
@@ -38,7 +39,7 @@ function App() {
     <StyledApp>
       <Navbar />
       <Outlet context={{ accessToken, spotifyApi }} />
-      {code ? <WelcomeUserMsg /> : <Footer />}
+      {code ? <WelcomeUserMsg displayName={displayName} /> : <Footer />}
     </StyledApp>
   );
 }
