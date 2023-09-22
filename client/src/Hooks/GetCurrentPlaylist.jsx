@@ -1,6 +1,6 @@
 import React from "react";
 
-function GetCurrentPlaylist() {
+function GetCurrentPlaylist(playlistID) {
   const getPlaylistFromID = async (defaultList) => {
     try {
       const response = spotifyApi.getPlaylist("4WX5OTb36RgzXqPpRLg4dQ");

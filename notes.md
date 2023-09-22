@@ -13,3 +13,5 @@ todo:
 --auto start pomodoro
 --end time : alarm? mute music? change music track to something specific?
 --2 minute warning?
+
+--make state change between routes!

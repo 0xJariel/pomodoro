@@ -5,19 +5,19 @@ import TimerControls from "../components/TimerControls";
 import PomodoroMessage from "../components/PomodoroMessage";
 import Radio from "../components/Radio";
 import Countdown from "../Hooks/Countdown";
+import { useOutletContext } from "react-router-dom";
 
 function Pomodoro() {
-  // const { minutes, seconds } = useContext();
-
-  const [minutes, setMinutes] = useState(25);
-  const [seconds, setSeconds] = useState(0);
-
-  const { isRunning, handleStart, handlePause, handleReset } = Countdown({
-    seconds,
+  const {
     minutes,
     setMinutes,
+    seconds,
     setSeconds,
-  });
+    isRunning,
+    handlePause,
+    handleStart,
+    handleReset,
+  } = useOutletContext();
 
   return (
     <StyledPomodoro>
@@ -41,6 +41,5 @@ const StyledPomodoro = styled.div`
   margin-left: auto;
   margin-right: auto;
   gap: 16px;
-  padding-top: 20px;
   padding-bottom: 10px;
 `;

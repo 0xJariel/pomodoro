@@ -34,5 +34,6 @@ const StyledTimerControls = styled.section`
     width: 80px;
     height: 56px;
     color: white;
+    cursor: pointer;
   }
 `;

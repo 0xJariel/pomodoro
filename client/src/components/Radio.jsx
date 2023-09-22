@@ -67,7 +67,9 @@ function Radio() {
         // Iterate through the devices and choose the appropriate one
         const devices = data.body.devices;
         console.log(data.body.devices);
+        console.log(data.body);
         // Select a device based on your criteria or user choice
+        console.log(devices);
         const selectedDevice = devices[0]; // Example: choose the first device
         const deviceId = selectedDevice.id;
         // Play a track on the selected device
@@ -149,6 +151,7 @@ const StyledRadio = styled.section`
     display: grid;
     /* background-color: rebeccapurple; */
     align-self: center;
+    cursor: pointer;
   }
 
   #playlists {

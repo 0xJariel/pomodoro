@@ -16,6 +16,16 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 function App() {
+  const [minutes, setMinutes] = useState(25);
+  const [seconds, setSeconds] = useState(0);
+
+  const { isRunning, handleStart, handlePause, handleReset } = Countdown({
+    seconds,
+    minutes,
+    setMinutes,
+    setSeconds,
+  });
+
   const [currentPlaylist, setCurrentPlaylist] = useState();
   const [playlists, setPlaylists] = useState([]);
 
@@ -38,7 +48,20 @@ function App() {
   return (
     <StyledApp>
       <Navbar />
-      <Outlet context={{ accessToken, spotifyApi }} />
+      <Outlet
+        context={{
+          accessToken,
+          spotifyApi,
+          minutes,
+          setMinutes,
+          seconds,
+          setSeconds,
+          isRunning,
+          handleStart,
+          handlePause,
+          handleReset,
+        }}
+      />
       {code ? <WelcomeUserMsg displayName={displayName} /> : <Footer />}
     </StyledApp>
   );

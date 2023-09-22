@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { useContext } from "react";
+import { useOutletContext } from "react-router-dom";
 
-function Settings({ minutes, seconds, setMinutes, setSeconds }) {
+function Settings() {
+  const { minutes, setMinutes, seconds, setSeconds } = useOutletContext();
+
   return (
     <StyledSettings>
       Set Timer:
@@ -16,7 +19,11 @@ function Settings({ minutes, seconds, setMinutes, setSeconds }) {
       </div>
       <div className="option">
         Seconds:
-        <input type="number" />
+        <input
+          type="number"
+          value={seconds}
+          onChange={(e) => setSeconds(e.target.value)}
+        />
       </div>
     </StyledSettings>
   );
